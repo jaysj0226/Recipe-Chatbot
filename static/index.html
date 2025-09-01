@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sweet Touch</title>
+
+    <!-- TailwindCSS CDN (Just‑in‑Time build) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Swiper slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+      :root {
+        --accent: #c59d5f;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- NAVBAR -->
+    <header class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+      <div class="container mx-auto flex items-center justify-between px-4 py-3">
+        <a href="#" class="font-playfair text-2xl font-semibold text-gray-900">Sweet Touch</a>
+        <nav class="hidden space-x-8 md:flex">
+          <a href="#tradition" class="text-sm hover:text-[var(--accent)]">Tradition</a>
+          <a href="#special" class="text-sm hover:text-[var(--accent)]">Today's Special</a>
+          <a href="#contact" class="text-sm hover:text-[var(--accent)]">Ask AI</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SLIDER -->
+    <section id="hero" class="pt-20">
+      <div class="swiper h-[600px] md:h-[750px]">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative flex items-center justify-center bg-center bg-cover" style="background-image:url('/static/assets/hero/cooks.jpg')">
+            <div class="absolute inset-0 bg-white/70"></div>
+            <div class="relative z-10 text-center max-w-xl px-4">
+              <h1 class="mb-4 text-5xl font-bold">What brings on?</h1>
+              <p class="mb-6 text-gray-600">Sweet Touch는 음식에 대한 즐거운 이야기를 제공하는 AI 요리 챗봇입니다.</p>
+              <a href="#chat" class="rounded-full bg-[var(--accent)] px-8 py-3 text-sm font-semibold text-white shadow hover:bg-[#a5834c]">Start Chat</a>
+            </div>
+          </div>
+          <!-- 추가 슬라이드 필요 시 여기에 -->
+        </div>
+        <!-- Slider controls -->
+        <div class="swiper-button-prev !text-gray-700"></div>
+        <div class="swiper-button-next !text-gray-700"></div>
+      </div>
+    </section>
+
+    <!-- OUR TRADITION -->
+    <section id="tradition" class="py-24">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="mb-4 text-3xl font-bold">Our Tradition</h2>
+        <p class="mx-auto mb-12 max-w-3xl text-gray-600">Sweet Touch는 혁신적인 AI 레시피 추천을 통해, 누구나 쉽고 즐겁게 요리할 수 있도록 돕습니다.</p>
+
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <!-- Item -->
+          <div class="flex flex-col items-center">
+            <img src="/static/assets/icons/cuisine.png" class="mb-3 h-14"  />
+            <h4 class="font-semibold">Cuisine</h4>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="/static/assets/icons/flower.png" class="mb-3 h-14"  />
+            <h4 class="font-semibold">Flowerness</h4>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="/static/assets/icons/angel.png" class="mb-3 h-14"  />
+            <h4 class="font-semibold">Angelish</h4>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="/static/assets/icons/fresh.png" class="mb-3 h-14"/>
+            <h4 class="font-semibold">Fresh</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL OF THE DAY -->
+    <section id="special" class="bg-gray-900 py-24 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="mb-3 text-3xl font-bold">Special Of The Day</h2>
+        <p class="mx-auto mb-10 max-w-3xl text-gray-300">매일매일 추천되는 특별 레시피로 식탁을 더욱 풍성하게 채워보세요.</p>
+        <div class="flex flex-col items-center justify-center md:flex-row md:gap-12">
+          <img src="/static/assets/special/choco_pudding.jpg" class="h-72 w-full max-w-md rounded-2xl object-cover shadow-lg" />
+          <div class="mt-8 text-left md:mt-0">
+            <h3 class="mb-4 text-2xl font-semibold text-[var(--accent)]">Chocolate Pudding</h3>
+            <ul class="mb-6 list-disc space-y-2 pl-5 text-gray-300">
+              <li>진한 다크 초콜릿 풍미</li>
+              <li>에어프라이어 사용, 15분 완성</li>
+              <li>223 kcal (1인분)</li>
+            </ul>
+            <a href="#chat" class="rounded bg-[var(--accent)] px-6 py-2 text-sm font-semibold text-gray-900 hover:bg-white">레시피 받아보기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAT SECTION -->
+    <section id="chat" class="bg-gray-50 py-24">
+      <div class="container mx-auto max-w-2xl px-4">
+        <h2 class="mb-6 text-center text-3xl font-bold">Recipe Chatbot</h2>
+
+        <!-- Chat window -->
+        <div id="chat-window" class="flex max-h-[60vh] flex-col gap-4 overflow-y-auto rounded-lg border bg-white p-4 shadow">
+          <div class="self-start rounded-lg bg-gray-200 px-4 py-2 text-sm text-gray-800">안녕하세요! 레시피, 재료, 보관법에 대해 무엇이든 물어보세요 😊</div>
+        </div>
+
+        <!-- Input -->
+        <form id="chat-form" class="mt-4 flex items-center gap-2">
+          <input type="text" id="user-input" class="flex-1 rounded-lg border px-4 py-2 text-sm focus:border-[var(--accent)] focus:outline-none" placeholder="메시지를 입력하세요…" autocomplete="off" required />
+          <button class="rounded-lg bg-[var(--accent)] px-6 py-2 text-sm font-semibold text-white shadow hover:bg-[#a5834c]" type="submit">전송</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-gray-900 py-12 text-gray-400">
+      <div class="container mx-auto grid gap-8 px-4 md:grid-cols-3">
+        <div>
+          <h4 class="mb-4 font-semibold text-white">Sweet Touch</h4>
+          <p class="text-sm">인증된 레시피로 맛있는 경험을 제공합니다.</p>
+        </div>
+        <div>
+          <h4 class="mb-4 font-semibold text-white">About Us</h4>
+          <p class="text-sm">레시피 출처: 만개의 레시피</p>
+        </div>
+        <div>
+          <h4 class="mb-4 font-semibold text-white">Contact</h4>
+          <p class="text-sm">samuel62b3221@gmail.com</p>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">© 2025 Sweet Touch. All rights reserved.</div>
+    </footer>
+
+    <!-- Chat logic -->
+    <script src="/static/app.js"></script>
+
+    <!-- Swiper init -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        new Swiper('.swiper', {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
