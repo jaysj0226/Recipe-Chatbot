@@ -35,18 +35,14 @@ A/B/C 실험 러너: 동일 질의셋으로 세 그룹 비교(+ LLM Judge).
 ├─ groupA_rag_flow/
 │  ├─ app_groupA.py                   # FastAPI 서버
 │  ├─ groupA_rag.py                   # LangGraph CLI
-│  ├─ list_chroma.py / smoke_retrieval.py
-│  └─ README.md (선택)
+│  └─ list_chroma.py / smoke_retrieval.py
+│  
 │
 ├─ experiments_rag_groups_chroma/
 │  ├─ run_group_ABC_chroma.py         # A/B/C 실험 러너
 │  ├─ queries_ko.json                 # 20~30개 질의(명확/애매/OOT 혼합)
 │  ├─ results/abc_results.csv         # 질문×그룹 단위 결과
-│  └─ results/abc_summary.csv         # 그룹 평균 요약
-│
-├─ data/
-│  └─ 10000recipe_dataset.csv         # (선택) 컨텍스트 보강용 CSV
-└─ ...
+└──── results/abc_summary.csv         # 그룹 평균 요약 
 
 
 실제 경로가 다르면 README의 명령어에서 경로만 바꿔주세요.
