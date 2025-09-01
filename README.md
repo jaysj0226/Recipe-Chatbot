@@ -38,7 +38,7 @@ A/B/C 실험 러너: 동일 질의셋으로 세 그룹 비교(+ LLM Judge).
 │  └─ list_chroma.py / smoke_retrieval.py
 │  
 │
-├─ experiments_rag_groups_chroma/
+├─ experiments_rag_groups/
 │  ├─ run_group_ABC_chroma.py         # A/B/C 실험 러너
 │  ├─ queries_ko.json                 # 20~30개 질의(명확/애매/OOT 혼합)
 │  ├─ results/abc_results.csv         # 질문×그룹 단위 결과
