@@ -229,11 +229,19 @@ print(response.json())
 ## 🧪 평가 및 테스트
 
 ### 자동 평가 실행
-
+./experiments/experiment_codes/에서 crag_test.py와 routing_rag_test.py
 20개의 테스트 케이스로 시스템을 평가합니다:
 
+CRAG 버전일 경우
 ```bash
-python test_routing_rag_evaluation.py
+python -m uvicorn main:app --reload
+python crag_test
+```
+Routing RAG 버전일 경우
+
+```bash
+python -m uvicorn chatbot_routing_rag:app --reload
+python routing_rag_test
 ```
 
 ### 평가 지표
@@ -270,7 +278,7 @@ python test_routing_rag_evaluation.py
   - 중앙값: 20.15초
 ```
 
-## 📂 프로젝트 구조
+## 📂 Routing RAG 프로젝트 구조
 
 ```
 Recipe-Chatbot/
