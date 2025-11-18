@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sweet Touch - AI Recipe Chatbot</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- App Styles -->
+    <link rel="stylesheet" href="/static/style.css?v=20251110" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Swiper Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+      :root {
+        --accent: #c59d5f;
+        --accent-dark: #a5834c;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+      }
+      
+      /* 커스텀 스크롤바 */
+      #chat-window::-webkit-scrollbar {
+        width: 6px;
+      }
+      #chat-window::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      #chat-window::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 10px;
+      }
+      
+      /* 애니메이션 */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .fade-in {
+        animation: fadeIn 0.3s ease-out;
+      }
+    </style>
+  </head>
+  
+  <body class="bg-white text-gray-800">
+    <!-- NAVBAR -->
+    <header class="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+      <div class="container mx-auto flex items-center justify-between px-4 py-4">
+        <a href="#" class="text-2xl font-bold text-gray-900">
+          🍳 Sweet Touch
+        </a>
+        <nav class="hidden space-x-8 md:flex">
+          <a href="#tradition" class="text-sm font-medium hover:text-[var(--accent)] transition-colors">Tradition</a>
+          <a href="#special" class="text-sm font-medium hover:text-[var(--accent)] transition-colors">Today's Special</a>
+          <a href="#chat" class="text-sm font-medium hover:text-[var(--accent)] transition-colors">Ask AI</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SLIDER -->
+    <section id="hero" class="pt-20">
+      <div class="swiper h-[600px] md:h-[750px]">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative flex items-center justify-center bg-cover bg-center" 
+               style="background-image:url('/static/assets/hero/cooks.jpg')">
+            <div class="absolute inset-0 bg-black/30"></div>
+            <div class="relative z-10 text-center max-w-2xl px-6">
+              <h1 class="mb-6 text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
+                What brings on?
+              </h1>
+              <p class="mb-8 text-lg text-white/90 drop-shadow">
+                Sweet Touch는 음식에 대한 즐거운 이야기를 제공하는 AI 요리 챗봇입니다.
+              </p>
+              <a href="#chat" class="inline-block rounded-full bg-[var(--accent)] px-10 py-4 text-sm font-bold text-white shadow-xl hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300">
+                Start Chat →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev !text-white"></div>
+        <div class="swiper-button-next !text-white"></div>
+      </div>
+    </section>
+
+    <!-- OUR TRADITION -->
+    <section id="tradition" class="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="mb-4 text-4xl font-bold">Our Tradition</h2>
+        <p class="mx-auto mb-16 max-w-3xl text-gray-600 text-lg">
+          Sweet Touch는 혁신적인 AI 레시피 추천을 통해,<br>
+          누구나 쉽고 즐겁게 요리할 수 있도록 돕습니다.
+        </p>
+
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4 max-w-5xl mx-auto">
+          <div class="flex flex-col items-center p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 fade-in">
+            <img src="/static/assets/icons/cuisine.png" class="mb-4 h-16 w-16 object-contain" alt="Cuisine" />
+            <h4 class="font-semibold text-lg">Cuisine</h4>
+            <p class="text-sm text-gray-500 mt-2">전문 요리</p>
+          </div>
+          
+          <div class="flex flex-col items-center p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 fade-in" style="animation-delay: 0.1s">
+            <img src="/static/assets/icons/flower.png" class="mb-4 h-16 w-16 object-contain" alt="Flower" />
+            <h4 class="font-semibold text-lg">Flowerness</h4>
+            <p class="text-sm text-gray-500 mt-2">화사한 맛</p>
+          </div>
+          
+          <div class="flex flex-col items-center p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 fade-in" style="animation-delay: 0.2s">
+            <img src="/static/assets/icons/angel.png" class="mb-4 h-16 w-16 object-contain" alt="Angel" />
+            <h4 class="font-semibold text-lg">Angelish</h4>
+            <p class="text-sm text-gray-500 mt-2">천사 같은 맛</p>
+          </div>
+          
+          <div class="flex flex-col items-center p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 fade-in" style="animation-delay: 0.3s">
+            <img src="/static/assets/icons/fresh.png" class="mb-4 h-16 w-16 object-contain" alt="Fresh" />
+            <h4 class="font-semibold text-lg">Fresh</h4>
+            <p class="text-sm text-gray-500 mt-2">신선한 재료</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL OF THE DAY -->
+    <section id="special" class="bg-gray-900 py-24 text-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="mb-4 text-4xl font-bold">Special Of The Day</h2>
+          <p class="mx-auto max-w-3xl text-gray-300 text-lg">
+            매일매일 추천되는 특별 레시피로 식탁을 더욱 풍성하게 채워보세요.
+          </p>
+        </div>
+        
+        <div class="flex flex-col items-center justify-center md:flex-row md:gap-16 max-w-6xl mx-auto">
+          <img src="/static/assets/special/choco_pudding.jpg" 
+               class="h-80 w-full max-w-md rounded-2xl object-cover shadow-2xl transform hover:scale-105 transition-transform duration-300" 
+               alt="Chocolate Pudding" />
+          
+          <div class="mt-10 md:mt-0 text-left max-w-md">
+            <h3 class="mb-6 text-3xl font-bold text-[var(--accent)]">Chocolate Pudding</h3>
+            <ul class="mb-8 space-y-3 text-gray-300">
+              <li class="flex items-center">
+                <span class="mr-3 text-[var(--accent)]">✓</span>
+                진한 다크 초콜릿 풍미
+              </li>
+              <li class="flex items-center">
+                <span class="mr-3 text-[var(--accent)]">✓</span>
+                에어프라이어 사용, 15분 완성
+              </li>
+              <li class="flex items-center">
+                <span class="mr-3 text-[var(--accent)]">✓</span>
+                223 kcal (1인분)
+              </li>
+            </ul>
+            <a href="#chat" class="inline-block rounded-lg bg-[var(--accent)] px-8 py-3 text-sm font-bold text-white hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-lg">
+              레시피 받아보기 →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAT SECTION -->
+    <section id="chat" class="bg-gradient-to-b from-gray-50 to-white py-24">
+      <div class="container mx-auto max-w-4xl px-4">
+        <div class="text-center mb-8">
+          <h2 class="mb-4 text-4xl font-bold">Recipe Chatbot</h2>
+          <p class="text-gray-600">AI와 대화하며 레시피를 찾아보세요</p>
+        </div>
+
+        <!-- Session Info Bar -->
+        <div class="mb-4 flex items-center justify-between rounded-lg bg-white px-4 py-3 shadow-sm border">
+          <span id="session-info" class="text-sm text-gray-600">새 대화 시작</span>
+          <button id="reset-chat" class="text-xs px-4 py-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition-colors font-medium">
+            🔄 대화 초기화
+          </button>
+        </div>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="flex max-h-[500px] flex-col gap-3 overflow-y-auto rounded-2xl border bg-white p-6 shadow-lg">
+          <div class="self-start rounded-2xl bg-gray-100 px-5 py-3 text-sm text-gray-800 shadow-sm">
+            안녕하세요! 레시피, 재료, 보관법에 대해 무엇이든 물어보세요 😊
+          </div>
+        </div>
+
+        <!-- Image Controls -->
+        <div class="mt-3 flex items-center gap-4">
+          <label class="flex items-center gap-2 text-sm text-gray-600">
+            <input type="checkbox" id="toggle-images" class="h-4 w-4" checked />
+            이미지 표시
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-600">
+            정책
+            <select id="image-policy" class="rounded-md border px-2 py-1 text-sm">
+              <option value="strict" selected>strict</option>
+              <option value="lenient">lenient</option>
+              <option value="always">always</option>
+            </select>
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-600">
+            개수
+            <input type="number" id="max-images" min="0" max="12" value="5" class="w-16 rounded-md border px-2 py-1 text-sm" />
+          </label>
+        </div>
+
+        <!-- Input Form -->
+        <form id="chat-form" class="mt-4 flex items-center gap-3">
+          <input 
+            type="text" 
+            id="user-input" 
+            class="flex-1 rounded-xl border-2 border-gray-200 px-5 py-3 text-sm focus:border-[var(--accent)] focus:outline-none transition-colors" 
+            placeholder="메시지를 입력하세요... (예: 김치찌개 만드는 법)" 
+            autocomplete="off" 
+            required 
+          />
+          <button class="rounded-xl bg-[var(--accent)] px-8 py-3 text-sm font-bold text-white shadow-lg hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300" type="submit">
+            전송
+          </button>
+        </form>
+
+        <!-- Tips -->
+        <div class="mt-6 text-center text-xs text-gray-500">
+          💡 Tip: 이전 대화를 기억합니다! "거기에 뭐 추가하면 좋아?" 같은 질문도 가능해요.
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-gray-900 py-16 text-gray-400">
+      <div class="container mx-auto grid gap-12 px-4 md:grid-cols-3">
+        <div>
+          <h4 class="mb-4 text-xl font-bold text-white">🍳 Sweet Touch</h4>
+          <p class="text-sm leading-relaxed">
+            인증된 레시피로 맛있는 경험을 제공합니다.<br>
+            AI와 함께하는 즐거운 요리 시간!
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="mb-4 text-xl font-bold text-white">About Us</h4>
+          <p class="text-sm leading-relaxed">
+            레시피 출처: 만개의레시피<br>
+            AI 기술: OpenAI GPT-4o<br>
+            벡터 DB: ChromaDB
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="mb-4 text-xl font-bold text-white">Contact</h4>
+          <p class="text-sm">
+            📧 samuel62b3221@gmail.com<br>
+            🌐 Recipe RAG v2.0
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
+        © 2025 Sweet Touch. All rights reserved. | Powered by AI
+      </div>
+    </footer>
+
+    <!-- Chat Logic -->
+    <script src="/static/app.js"></script>
+
+    <!-- Swiper Initialization -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        new Swiper('.swiper', {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          effect: 'fade',
+          fadeEffect: {
+            crossFade: true
+          }
+        });
+      });
+    </script>
+  </body>
+  <!-- App script (cache-busted) -->
+  <script defer src="/static/app.js?v=20251110"></script>
+</html>

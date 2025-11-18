@@ -1,0 +1,10 @@
+{
+  "timestamp": "20251118_031953",
+  "metrics": {
+    "context_precision": 0.8421052630736842,
+    "context_recall": 0.7027027027027027,
+    "answer_relevancy": 0.8169615778786232,
+    "faithfulness": 0.9216701453308597
+  },
+  "dataset_size": 86
+}
